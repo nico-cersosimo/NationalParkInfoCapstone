@@ -1,0 +1,2 @@
+# NationalParkInfoCapstone
+Created a website in Microsoft Visual Studio  which allows the user to view a catalog of national parks, and then click on their image or name (by hyperlink) to view further details about that specific park. Also allows the user to view a specific park’s five-day weather forecast as well as submit a survey of their favorite park, which then directs them to a page of the parks voted as favorites in order from Greatest amount of votes to least 
