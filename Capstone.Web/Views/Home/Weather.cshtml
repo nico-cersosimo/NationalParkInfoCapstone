@@ -1,0 +1,56 @@
+﻿<link href="~/css/SpruceItUp.css" rel="stylesheet" />
+@model List<Weather>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<h3 style="text-align:center; font-family: 'Times New Roman', Times, serif">Park Weather Forecast</h3>
+<hr style="border-color:black; margin-bottom:-0.7%; margin-top:1%; color:black" />
+@{
+    foreach (Weather day in Model)
+    {
+        var forecastIMG = day.Forecast.Replace(" ", "") + ".png";
+        <div class="home" style="margin-top:3%">
+            <div>
+                <img style="margin-left:67%; width: 150px; border: 10px groove" src="/images/weather/@forecastIMG" />
+            </div>
+            <div style="margin-top:3%">
+                <div>
+                    <div style="display: inline-flex">
+                        <b>Day @day.FiveDayForecastValue</b>
+                        <p>: @day.Forecast</p>
+                    </div>
+                </div>
+                <div>
+                    <div style="display: inline-flex">
+                        <b>Low Temperature</b><p>: @day.Low</p>
+                    </div>
+                </div>
+                <div>
+                    <div style="display: inline-flex">
+                        <b>High Temperature</b><p>: @day.High</p>
+                    </div>
+                </div>
+                @{
+                    if (day.Forecast == "snow")
+                    {
+                        <p style="font-family:cursive">Pack your snowshoes! It's gonna be a frosty one!!</p>
+                    }
+                    else if (day.Forecast == "rain")
+                    {
+                        <p style="font-family:cursive">Have your rain gear and waterproof shoes ready!</p>
+                    }
+                    else if (day.Forecast == "thunderstorms")
+                    {
+                        <p style="font-family:cursive">Seek shelter if storms intensify. Avoid hiking on exposed ridges!</p>
+                    }
+                    else if (day.Forecast == "sunny")
+                    {
+                        <p style="font-family:cursive">Pile on the sunscreen! It's lookin' like clear skies all day!!</p>
+                    }
+                }
+            </div>
+        </div>
+    }
+}
+

@@ -1,0 +1,12 @@
+﻿@model List<Weather>
+
+<h3>Park Weather Forecast</h3>
+@{
+    foreach (Weather day in Model)
+    {
+        <p>@day.FiveDayForecastValue</p>
+        <p>@day.Forecast</p>
+        <p>@day.LowCelsius</p>
+        <p>@day.HighCelsius</p>
+    }
+}

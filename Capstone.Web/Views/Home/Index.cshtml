@@ -1,0 +1,26 @@
+﻿<link href="~/css/SpruceItUp.css" rel="stylesheet" />
+@model List<Park>
+@{
+    ViewData["Title"] = "Index";
+    <img style="width:100%; background-color:antiquewhite" src="~/images/geekClipArt/logo.png" />
+    <hr style="border-color:black; margin-top:1%; color:black" />
+    <h1 style="text-align:center; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif; background-color:antiquewhite; margin-top:-7px">Park Catalog</h1>
+    <hr style="border-color:black; margin-bottom:1%; margin-top:1%; color:black" />
+}
+
+@{
+    foreach (Park park in Model)
+    {
+        <div class="home" style="background-color:antiquewhite">
+            <div style="margin-top:3%; margin-left:3%; margin-bottom:3%">
+                <a asp-controller="Home" asp-action="Detail" asp-route-parkCode=@park.ParkCode asp-route-TemperatureKey="Fahrenheit"><img style="border:10px groove; border-color:darkgoldenrod" src="/images/parks/@{@park.ParkCode}.jpg" /></a>
+            </div>
+            <div style="text-align:center; margin-right: 11%; margin-top:10%">
+                <a style="font-size:x-large; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " asp-action="Detail" asp-route-parkCode=@park.ParkCode asp-route-TemperatureKey="Fahrenheit">@park.Name</a>
+                <p style="font-size:larger; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">@park.State</p>
+                <p>@park.Description</p>
+            </div>
+        </div>
+        <hr style="border-color:black; margin-bottom:1%; margin-top:1%; color:black" />
+    }
+}

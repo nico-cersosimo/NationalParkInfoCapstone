@@ -1,0 +1,73 @@
+﻿body {
+    background-color: antiquewhite;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#WholeSurvey {
+    background-color: antiquewhite;
+    margin-bottom: 100px;
+
+}
+
+#SurveyHeader {
+    text-align: center;
+    padding-top: 30px;
+}
+
+#SurveyDescription {
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+#SurveyForm {
+    padding-left: 50px;
+    height: 100%;
+}
+
+#HeaderFormSeparator {
+    border-color: darkolivegreen;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#InputField {
+    display:inline;
+    margin-bottom: 30px;
+}
+
+#InputsTable td {
+    padding-bottom: 20px;
+}
+
+#SubmitButton {
+    margin-bottom: 20px;
+    margin-top: 70px;
+}
+
+#FavoriteParkImage {
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+#FavoriteParkImage img {
+    border: 5px solid;
+    border-radius: 20px;
+    width: 75%;
+}
+
+#FavoriteParkStats {
+    display: inline-block;
+}
+
+#FavoritesHeader {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    padding-left: 50px;
+}

@@ -1,0 +1,67 @@
+﻿<link href="~/css/SpruceItUp.css" rel="stylesheet" />
+
+
+@model Survey
+
+@{
+    ViewData["Title"] = "Survey";
+}
+
+<body>
+    <div id="WholeSurvey">
+        <h2 id="SurveyHeader">Park Survey</h2>
+        <h4 id="SurveyDescription">Thank you for visiting <strong>National Park Geek</strong>!  Please complete the following survey page as a vote for your favorite national park.  Your entry will be recorded and you will be redirected to the current listings of favorite parks.</h4>
+        <hr id="HeaderFormSeparator" />
+
+        <div id="SurveyForm">
+            <form asp-controller="Survey" asp-action="PostList" method="post">
+
+                <table id="InputsTable">
+                    <tr>
+                        <div id="InputField">
+                            <td>
+                                <label asp-for="ParkCode">Your Favorite National Park: </label>
+                            </td>
+                            <td style="padding-left: 15px;">
+                                <select required asp-for="ParkCode" asp-items="Survey.Parks"></select>
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div id="InputField">
+                            <td>
+                                <label asp-for="Email">Your Email: </label>
+                            </td>
+                            <td style="padding-left: 15px;">
+                                <input  required type="email" asp-for="Email" />
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div id="InputField">
+                            <td>
+                                <label asp-for="State">Your State of Residence: </label>
+                            </td>
+                            <td style="padding-left: 15px;">
+                                <select required asp-for="State" asp-items="Survey.States"></select>
+                            </td>
+                        </div>
+                    </tr>
+                </table>
+
+                <div id="InputField">
+                    <label asp-for="ActivityLevel">How active are you? </label>
+                    <br />
+                    @foreach (SelectListItem level in Survey.ActivityLevels)
+                    {
+                        <input type="radio" required asp-for="ActivityLevel" value="@level.Value" /> @level.Value
+                    }
+                </div>
+                <br />
+                <br />
+                <input id="SubmitButton" type="submit" value="Submit Survey" />
+                <br />
+            </form>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,24 @@
+﻿<link href="~/css/SpruceItUp.css" rel="stylesheet" />
+
+@model List<Survey>
+
+
+@{
+    ViewData["Title"] = "Favorites";
+}
+
+<body>
+    <h1 id="FavoritesHeader">Current Favorites</h1>
+
+    @foreach (Survey survey in Model)
+    {
+        <div id="FavoriteParkImage">
+            <img style="display: inline;" src="/images/parks/@{@survey.ParkCode}.jpg" />
+        </div>
+        <div id="FavoriteParkStats">
+            <h3><strong>@survey.ParkName</strong></h3>
+            <p><strong>Number of Votes: @survey.Votes</strong></p>
+        </div>
+    }
+</body>
+

@@ -1,0 +1,92 @@
+﻿<link href="~/css/SpruceItUp.css" rel="stylesheet" />
+
+@model Detail
+@{
+    ViewData["Title"] = "Detail";
+    <img style="width:100%; background-color:antiquewhite" src="~/images/geekClipArt/logo.png" />
+    <hr style="border-color:black; margin-top:1%; color:black" />
+    <h1 style="text-align:center; font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif; background-color:antiquewhite; margin-top:-7px">Park Details</h1>
+    <hr style="border-color:black; margin-bottom:1%; margin-top:1%; color:black" />
+}
+<div style="background-color:antiquewhite">
+    <img style="width:50%; margin-left:24.7%; margin-top:2%; border:10px groove; border-color:goldenrod" src="/images/parks/@{@Model.park.ParkCode}.jpg" />
+    <h2 style="text-align:center; font-family: 'Times New Roman', Times, serif; color:maroon">@Model.park.Name</h2>
+    <p style="text-align:center; font-size:larger; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">@Model.park.State</p>
+    <div style="margin-top:2.5%; text-align:center">
+        <div style="display:inline-flex">
+            <b>Acreage</b><p>: @Model.park.Acreage acres</p>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <div style="display:inline-flex">
+            <b>Total Trail Length</b><p>: @Model.park.MilesOfTrail miles</p>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <div style="display:inline-flex">
+            <b>Elevation</b><p>: @Model.park.Elevation feet</p>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <div style="display:inline-flex">
+            <b>Number of Campsites</b><p>: @Model.park.NumOfCampsites</p>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <div style="display:inline-flex">
+            <b>Climate</b><p>: @Model.park.Climate</p>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <div style="display:inline-flex">
+            <b>Year Founded</b><p>: @Model.park.YearFounded</p>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <div style="display:inline-flex">
+            <b>Average Annual Visitors</b><p>: @Model.park.Visitors</p>
+        </div>
+    </div>
+    <div style="text-align:center; width:75%; margin-left:12.5%; margin-top:1%; font-family: cursive; font-size:x-large">
+        <div style="display:inline-flex">
+            <p>"@Model.park.Quote"</p>
+        </div>
+    </div>
+    <div style="text-align:center; margin-bottom:1%">
+        <div style="display:inline-flex">
+            <p>~ @Model.park.QuoteSource</p>
+        </div>
+    </div>
+    <div style="text-align:center; width:60%; margin-left:20%">
+        <div style="display:inline-flex">
+            <b>Description</b><p>:</p>
+        </div>
+        <p>@Model.park.Description</p>
+    </div>
+    <div style="text-align:center">
+        <div style="display:inline-flex">
+            <b>Entry Fee</b><p>: $@Model.park.EntryFee</p>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <div style="display:inline-flex">
+            <b>Number of Unique Animal Species</b><p>: @Model.park.NumOfAnimalSpecies</p>
+        </div>
+    </div>
+</div>
+<hr style="border-color:black; margin-bottom:-0.7%; margin-top:1%; color:black" />
+<div style="background-color:antiquewhite">
+
+    <partial name="Weather" model="Model.weather" />
+
+    <form style="margin-top:3%; text-align:center" asp-controller="Home" asp-action="ChangeSessionTemperature" asp-route-parkCode="@Model.park.ParkCode" asp-route-detailObject="@Model">
+
+            <label>Change Temp? </label>
+            <select asp-for="newWeatherMeasurement" asp-items="Weather.TempTypes"></select>
+
+            <input type="submit" text="Change Temp" />
+        </form>
+</div>
+
+
+
